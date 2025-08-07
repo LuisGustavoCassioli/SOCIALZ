@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Feed{% endblock %}
+
+{% block content %}
+<h2>Feed de Posts</h2>
+{% for post in posts %}
+    <div class="card my-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ post.author.username }}</h5>
+            <p class="card-text">{{ post.content }}</p>
+            <small class="text-muted">{{ post.created_at|date:"d/m/Y H:i" }}</small>
+        </div>
+    </div>
+{% empty %}
+    <p>Não há posts ainda. Poste algo, Zé!</p>
+{% endfor %}
+{% endblock %}
